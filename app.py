@@ -48,15 +48,15 @@ def git_push_update():
         return False
 
 def save_token_cache(server, tokens):
-    """SAVE TOKENS TO FILE + GIT AUTO UPDATE"""
-    cache_file = f"token_cache_{server.lower()}.json"
+    """SAVE TOKENS TO /tmp (Vercel writable)"""
+    cache_file = f"/tmp/token_cache_{server.lower()}.json"
     data = {
         "server": server,
         "tokens": len(tokens),
         "timestamp": time.time(),
         "updated": time.strftime('%Y-%m-%d %H:%M:%S')
     }
-    
+
     with open(cache_file, "w") as f:
         json.dump(data, f, indent=2)
     
