@@ -2,3 +2,4 @@ flask
 aiohttp
 protobuf
 pycryptodome
+httpx
